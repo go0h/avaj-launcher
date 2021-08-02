@@ -1,7 +1,6 @@
-package fr.fourtytwo.avaj;
+package fr.fourtytwo.avaj.weather;
 
 import java.util.ArrayList;
-
 import fr.fourtytwo.avaj.aircraft.Flyable;
 
 public abstract class Tower {
@@ -9,7 +8,6 @@ public abstract class Tower {
 	private ArrayList<Flyable> observes;
 
 	public void register(Flyable flyable) {
-
 		if (!observes.contains(flyable)) {
 			observes.add(flyable);
 		}

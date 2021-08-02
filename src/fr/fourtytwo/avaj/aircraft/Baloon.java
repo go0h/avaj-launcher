@@ -1,6 +1,6 @@
 package fr.fourtytwo.avaj.aircraft;
 
-import fr.fourtytwo.avaj.WeatherTower;
+import fr.fourtytwo.avaj.weather.WeatherTower;
 
 public class Baloon extends Aircraft implements Flyable {
 
