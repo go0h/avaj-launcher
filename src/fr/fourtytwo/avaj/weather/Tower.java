@@ -5,7 +5,7 @@ import fr.fourtytwo.avaj.aircraft.Flyable;
 
 public abstract class Tower {
 
-	private ArrayList<Flyable> observes;
+	private ArrayList<Flyable> observes = new ArrayList<Flyable>();
 
 	public void register(Flyable flyable) {
 		if (!observes.contains(flyable)) {

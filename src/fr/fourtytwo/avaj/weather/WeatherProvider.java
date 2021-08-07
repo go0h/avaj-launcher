@@ -1,15 +1,18 @@
 
 package fr.fourtytwo.avaj.weather;
 
+import fr.fourtytwo.avaj.aircraft.Coordinates;
 
 public class WeatherProvider {
 
-    private static final WeatherProvider weatherProvider = new WeatherProvider();
-	private static final ArrayList<String> weather = new ArrayList<String>();
+    private static WeatherProvider weatherProvider;
+    private static String[] weather = new String[]{"RAIN", "FOG", "SUN", "SNOW"};
 
-    private WeatherProvider { };
-    
-    public WeatherProvider getProvider() {
+    private WeatherProvider() { };
+
+    public static WeatherProvider getProvider() {
+        if (weatherProvider == null)
+            weatherProvider = new WeatherProvider();
         return weatherProvider;
     }
 
@@ -19,6 +22,5 @@ public class WeatherProvider {
         }
         return "SUNNY";
     }
-
 
 }

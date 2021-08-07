@@ -1,5 +1,5 @@
 
-package fr.fourtytwo.avaj;
+package fr.fourtytwo.avaj.weather;
 
 public enum WeatherType {
 	RAIN,
