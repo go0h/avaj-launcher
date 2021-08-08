@@ -27,11 +27,14 @@ public class WeatherTower extends Tower {
 	}
 
 	void changeWeather() {
-		System.out.println("Weather is changed");
+		conditionsChanged();
 	}
 
 	public void simulateWeatherChanges(int cycles) {
-		while (cycles-- > 0)
+		while (cycles-- > 0) {
 			this.changeWeather();
+			System.out.println("Cycle to go " + cycles);
+		}
+
 	}
 }

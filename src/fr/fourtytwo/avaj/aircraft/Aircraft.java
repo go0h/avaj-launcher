@@ -21,4 +21,11 @@ public abstract class Aircraft {
 		return this.getClass().getSimpleName() + "#" + this.name + "(" + this.id + ")";
 	}
 
+	public boolean equals(Object object) {
+		if (object instanceof Aircraft) {
+			return this.toString().equals(((Aircraft)object).toString());
+		}
+		return false;
+	}
+
 }
