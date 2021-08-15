@@ -1,11 +1,13 @@
 package fr.fourtytwo.avaj.aircraft;
 
-import fr.fourtytwo.avaj.weather.WeatherTower;
+import java.io.PrintStream;
 import java.util.HashMap;
+import fr.fourtytwo.avaj.weather.WeatherTower;
 
 public class Helicopter extends Aircraft implements Flyable {
 
 	private WeatherTower weatherTower;
+	private PrintStream writer = System.out;
 
 	private static HashMap<String, int[]> weatherReflection = new HashMap<String, int[]>();
 
@@ -32,7 +34,7 @@ public class Helicopter extends Aircraft implements Flyable {
 			if (!weatherReflection.keySet().contains(weather)) {
 				throw new IllegalArgumentException("Can't recognize weather type " + weather);
 			}
-			System.out.println(this.toString() + ": got " + weather.toLowerCase() + "ified seriously");
+			writer.println(this.toString() + ": got " + weather.toLowerCase() + "ified seriously");
 
 			int[] deltas = weatherReflection.get(weather);
 			this.coordinates = new Coordinates(
@@ -41,7 +43,7 @@ public class Helicopter extends Aircraft implements Flyable {
 				coordinates.getHeight() + deltas[2]);
 			if (coordinates.getHeight() <= 0) {
 				coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), 0);
-				System.out.println(this.toString() + " is landing");
+				writer.println(this.toString() + " is landing");
 				this.weatherTower.unregister(this);
 			}
 			if (coordinates.getHeight() >= 100) {
@@ -54,5 +56,10 @@ public class Helicopter extends Aircraft implements Flyable {
 	public void registerTower(WeatherTower weatherTower) {
 		this.weatherTower = weatherTower;
 		this.weatherTower.register(this);
+	}
+
+	@Override
+	public void registerWriter(PrintStream writer) {
+		this.writer = writer;
 	}
 }

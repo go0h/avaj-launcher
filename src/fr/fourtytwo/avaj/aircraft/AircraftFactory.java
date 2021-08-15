@@ -2,6 +2,7 @@
 package fr.fourtytwo.avaj.aircraft;
 
 import fr.fourtytwo.avaj.Utils;
+import fr.fourtytwo.avaj.exceptions.UnknownAircraft;
 
 public class AircraftFactory {
 
@@ -20,7 +21,7 @@ public class AircraftFactory {
 			flyable = new Baloon(name, coordinates);
 		}
 		else {
-			throw new IllegalArgumentException("Can't create " + type + " flyable");
+			throw new UnknownAircraft("Can't create " + type + " flyable");
 		}
 		return flyable;
 	}

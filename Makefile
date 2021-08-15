@@ -6,7 +6,7 @@
 #    By: astripeb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/11 12:35:56 by astripeb          #+#    #+#              #
-#    Updated: 2021/07/24 20:53:05 by astripeb         ###   ########.fr        #
+#    Updated: 2021/08/15 12:13:42 by astripeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ $(CLASSES_DIR):
 
 clean:
 	rm -rf $(CLASSES_DIR)
+	rm -rf simulation.txt
 	echo "$(RED)Deleting $(BOLDU)classes files$(RESET)"
 
 fclean: clean
